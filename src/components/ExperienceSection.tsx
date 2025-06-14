@@ -1,27 +1,5 @@
 
-import { useState, useEffect, useRef } from 'react';
-
 const ExperienceSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const experiences = [
     {
       year: '2023 - Present',
@@ -52,12 +30,11 @@ const ExperienceSection = () => {
       achievements: ['Served 20+ clients', 'Built strong referral network', 'Developed specialized VA processes']
     }
   ];
-
   return (
-    <section id="experience" className="py-24 bg-gray-50" ref={sectionRef}>
+    <section id="experience" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Experience Timeline
           </h2>
@@ -81,16 +58,11 @@ const ExperienceSection = () => {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg z-10"></div>
-
-                {/* Content Card */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-white shadow-lg z-10"></div>                {/* Content Card */}
                 <div
                   className={`w-full lg:w-5/12 ${
                     index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'
-                  } ${
-                    isVisible ? 'animate-fade-in-up' : 'opacity-0'
                   }`}
-                  style={{ animationDelay: `${index * 0.2}s` }}
                 >
                   <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                     {/* Year Badge */}
@@ -128,10 +100,8 @@ const ExperienceSection = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className={`text-center mt-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '1s' }}>
+        </div>        {/* Call to Action */}
+        <div className="text-center mt-16">
           <div className="bg-white rounded-3xl p-8 shadow-xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Ready to Add Your Success to My Timeline?

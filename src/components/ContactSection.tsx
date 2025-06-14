@@ -31,8 +31,7 @@ const ContactSection = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
-  };
-  const handleSubmit = async (e: React.FormEvent) => {
+  };  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) {
       toast({
@@ -42,30 +41,22 @@ const ContactSection = () => {
       });
       return;
     }
-    setIsSubmitting(true);
-    try {
-      // For production, you'd integrate with your preferred form service
-      // For now, we'll simulate success and provide contact information
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      toast({
-        title: "Message Received!",
-        description: "Thanks for reaching out! I'll get back to you within 24 hours via email or phone."
-      });
-      setFormData({
-        name: '',
-        email: '',
-        message: ''
-      });
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again or contact me directly.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    
+    // Create email content
+    const subject = `New Inquiry from ${formData.name}`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+    const mailtoLink = `mailto:${import.meta.env.VITE_CONTACT_EMAIL || 'claraonyango8@gmail.com'}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      // Open email client
+    window.open(mailtoLink);
+    
+    // Reset form and show success message
+    setFormData({ name: '', email: '', message: '' });
+    toast({
+      title: "Email client opened!",
+      description: "Your default email app should now open with your message pre-filled.",
+    });
   };
+
   return <section id="contact" className="py-24 bg-gray-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

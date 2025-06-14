@@ -1,49 +1,26 @@
 
-import { useState, useEffect, useRef } from 'react';
-
 const ToolsSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   const tools = [
-    { name: 'Google Workspace', category: 'Productivity', icon: '📧' },
-    { name: 'Microsoft Office', category: 'Office Suite', icon: '📄' },
-    { name: 'HubSpot', category: 'CRM', icon: '🔗' },
-    { name: 'Trello', category: 'Project Management', icon: '📋' },
-    { name: 'Slack', category: 'Communication', icon: '💬' },
-    { name: 'Zoom', category: 'Video Conferencing', icon: '📹' },
-    { name: 'WhatsApp', category: 'Messaging', icon: '📱' },
-    { name: 'Calendly', category: 'Scheduling', icon: '🗓️' },
-    { name: 'Notion', category: 'Documentation', icon: '📝' },
-    { name: 'Canva', category: 'Design', icon: '🎨' },
-    { name: 'Asana', category: 'Task Management', icon: '✅' },
-    { name: 'Mailchimp', category: 'Email Marketing', icon: '📮' }
+    { name: 'Google Workspace', category: 'Productivity', logo: '/logos/Googleworkspace.png' },
+    { name: 'Microsoft Office', category: 'Office Suite', logo: '/logos/microsoft 365.png' },
+    { name: 'HubSpot', category: 'CRM', logo: '/logos/hubspot.png' },
+    { name: 'Trello', category: 'Project Management', logo: '/logos/Trello.png' },
+    { name: 'Slack', category: 'Communication', logo: '/logos/slack.png' },
+    { name: 'Zoom', category: 'Video Conferencing', logo: '/logos/zoom.jpeg' },
+    { name: 'WhatsApp', category: 'Messaging', logo: '/logos/whatsapp.jpeg' },
+    { name: 'Calendly', category: 'Scheduling', logo: '/logos/calendly.png' },
+    { name: 'Notion', category: 'Documentation', logo: '/logos/notion.png' },
+    { name: 'Canva', category: 'Design', logo: '/logos/canva.jpeg' },
+    { name: 'Asana', category: 'Task Management', logo: '/logos/asana.jpeg' },
+    { name: 'Mailchimp', category: 'Email Marketing', logo: '/logos/mailchimp.png' }
   ];
-
   return (
-    <section className="py-24 bg-white" ref={sectionRef}>
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Tools I Master
+            Tools I've Mastered
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Proficient in industry-leading tools and platforms to deliver seamless, efficient solutions for your business needs.
@@ -55,14 +32,15 @@ const ToolsSection = () => {
           {tools.map((tool, index) => (
             <div
               key={tool.name}
-              className={`group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-200 hover:scale-102 cursor-pointer ${
-                isVisible ? 'animate-fade-in-up' : 'opacity-0'
-              }`}
-              style={{ animationDelay: `${index * 0.03}s` }}
+              className="group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-200 hover:scale-102 cursor-pointer"
             >
-              {/* Icon */}
-              <div className="text-4xl mb-4 group-hover:scale-105 transition-transform duration-200 text-center">
-                {tool.icon}
+              {/* Logo */}
+              <div className="h-16 mb-4 flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+                <img 
+                  src={tool.logo} 
+                  alt={`${tool.name} logo`}
+                  className="max-h-full max-w-full object-contain"
+                />
               </div>
 
               {/* Tool Name */}
@@ -79,7 +57,7 @@ const ToolsSection = () => {
         </div>
 
         {/* Additional Skills */}
-        <div className={`text-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.5s' }}>
+        <div className="text-center">
           <div className="bg-gray-50 rounded-3xl p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Always Learning, Always Adapting

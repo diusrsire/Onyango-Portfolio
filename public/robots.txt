@@ -2,4 +2,11 @@
 User-agent: *
 Allow: /
 
+# Security improvements
+Disallow: /admin/
+Disallow: /config/
+Disallow: /.env
+Disallow: /node_modules/
+Disallow: /src/
+
 Sitemap: https://claraonyango.com/sitemap.xml

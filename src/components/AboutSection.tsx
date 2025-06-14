@@ -25,12 +25,10 @@ const AboutSection = () => {
   return (
     <section className="py-24 bg-gray-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content - Clara's Portrait */}
-          <div className={`relative ${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
-            <div className="relative">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">          {/* Left Content - Clara's Portrait */}
+          <div className={`relative ${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>            <div className="relative">
               <img 
-                src="/lovable-uploads/b9214170-4170-414a-8c4d-ef8baf2514c0.png" 
+                src="/Clara_about.jpeg" 
                 alt="Clara Onyango - Virtual Assistant Expert" 
                 className="w-full max-w-md mx-auto rounded-2xl shadow-xl"
               />

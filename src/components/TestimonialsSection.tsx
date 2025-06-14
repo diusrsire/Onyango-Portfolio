@@ -1,27 +1,8 @@
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 const TestimonialsSection = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -57,12 +38,11 @@ const TestimonialsSection = () => {
       rating: 5
     }
   ];
-
   return (
-    <section className="py-24 bg-blue-600" ref={sectionRef}>
+    <section className="py-24 bg-blue-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
             What Clients Say
           </h2>
@@ -72,7 +52,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Testimonial Carousel */}
-        <div className={`relative ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
+        <div className="relative">
           <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl max-w-4xl mx-auto transition-opacity duration-500">
             <div className="text-center">
               {/* Stars */}
@@ -120,10 +100,8 @@ const TestimonialsSection = () => {
               />
             ))}
           </div>
-        </div>
-
-        {/* Stats Section */}
-        <div className={`mt-20 grid md:grid-cols-3 gap-8 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
+        </div>        {/* Stats Section */}
+        <div className="mt-20 grid md:grid-cols-3 gap-8">
           <div className="text-center">
             <div className="text-4xl font-bold text-white mb-2">50+</div>
             <div className="text-blue-100">Happy Clients</div>
