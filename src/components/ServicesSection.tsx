@@ -79,13 +79,13 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-2 ${
-                isVisible ? 'animate-bounce-in' : 'opacity-0'
+              className={`group bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-200 ${
+                isVisible ? 'animate-fade-in-up' : 'opacity-0'
               }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              style={{ animationDelay: `${index * 0.05}s` }}
             >
               {/* Icon */}
-              <div className="text-5xl mb-6 group-hover:scale-110 transition-transform duration-200">
+              <div className="text-5xl mb-6 group-hover:scale-105 transition-transform duration-200">
                 {service.icon}
               </div>
 
@@ -108,19 +108,16 @@ const ServicesSection = () => {
                   </li>
                 ))}
               </ul>
-
-              {/* Hover Effect Border */}
-              <div className="absolute inset-0 rounded-2xl border-2 border-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
             </div>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className={`text-center mt-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.8s' }}>
+        <div className={`text-center mt-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
           <p className="text-lg text-gray-600 mb-6">
             Ready to reclaim your time and supercharge your productivity?
           </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transform hover:scale-105 transition-all duration-200 shadow-lg">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors duration-200 shadow-lg">
             Let's Discuss Your Needs
           </button>
         </div>

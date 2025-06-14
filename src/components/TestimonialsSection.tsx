@@ -72,8 +72,8 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Testimonial Carousel */}
-        <div className={`relative ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.3s' }}>
-          <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl max-w-4xl mx-auto">
+        <div className={`relative ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
+          <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl max-w-4xl mx-auto transition-opacity duration-500">
             <div className="text-center">
               {/* Stars */}
               <div className="flex justify-center mb-6">
@@ -114,7 +114,7 @@ const TestimonialsSection = () => {
                 onClick={() => setCurrentTestimonial(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-200 ${
                   index === currentTestimonial 
-                    ? 'bg-white scale-125' 
+                    ? 'bg-white' 
                     : 'bg-blue-300 hover:bg-blue-200'
                 }`}
               />
@@ -123,7 +123,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Stats Section */}
-        <div className={`mt-20 grid md:grid-cols-3 gap-8 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.6s' }}>
+        <div className={`mt-20 grid md:grid-cols-3 gap-8 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
           <div className="text-center">
             <div className="text-4xl font-bold text-white mb-2">50+</div>
             <div className="text-blue-100">Happy Clients</div>

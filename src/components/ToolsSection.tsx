@@ -55,13 +55,13 @@ const ToolsSection = () => {
           {tools.map((tool, index) => (
             <div
               key={tool.name}
-              className={`group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-2xl hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 cursor-pointer ${
-                isVisible ? 'animate-bounce-in' : 'opacity-0'
+              className={`group bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:border-blue-200 transition-all duration-200 hover:scale-102 cursor-pointer ${
+                isVisible ? 'animate-fade-in-up' : 'opacity-0'
               }`}
-              style={{ animationDelay: `${index * 0.05}s` }}
+              style={{ animationDelay: `${index * 0.03}s` }}
             >
               {/* Icon */}
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-200 text-center">
+              <div className="text-4xl mb-4 group-hover:scale-105 transition-transform duration-200 text-center">
                 {tool.icon}
               </div>
 
@@ -74,15 +74,12 @@ const ToolsSection = () => {
               <p className="text-sm text-gray-500 text-center">
                 {tool.category}
               </p>
-
-              {/* Hover Glow Effect */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-gradient-to-r from-blue-400/10 to-indigo-400/10"></div>
             </div>
           ))}
         </div>
 
         {/* Additional Skills */}
-        <div className={`text-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.8s' }}>
+        <div className={`text-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '0.5s' }}>
           <div className="bg-gray-50 rounded-3xl p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Always Learning, Always Adapting
@@ -93,10 +90,10 @@ const ToolsSection = () => {
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
-              {['Quick Learner', 'Tech Adaptable', 'Process Optimizer', 'Efficiency Expert'].map((skill, index) => (
+              {['Quick Learner', 'Tech Adaptable', 'Process Optimizer', 'Efficiency Expert'].map((skill) => (
                 <span
                   key={skill}
-                  className="px-6 py-3 bg-white rounded-full text-blue-700 font-semibold shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                  className="px-6 py-3 bg-white rounded-full text-blue-700 font-semibold shadow-md hover:shadow-lg transition-shadow duration-200"
                 >
                   {skill}
                 </span>
