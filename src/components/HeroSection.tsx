@@ -1,10 +1,7 @@
-
 import { Button } from './ui/button';
 import { ArrowDown } from 'lucide-react';
-
 const HeroSection = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 rounded-full opacity-20"></div>
@@ -19,7 +16,7 @@ const HeroSection = () => {
             <div className="animate-fade-in-up">
               <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Your{' '}
-                <span className="gradient-text">Billion-Dollar</span>
+                <span className="gradient-text"></span>
                 <br />
                 Virtual Assistant Partner
               </h1>
@@ -31,17 +28,10 @@ const HeroSection = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button 
-                  size="lg" 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold transition-colors duration-200"
-                >
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold transition-colors duration-200">
                   Let's Work Together
                 </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg font-semibold transition-colors duration-200"
-                >
+                <Button variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg font-semibold transition-colors duration-200">
                   View My Resume
                 </Button>
               </div>
@@ -49,14 +39,9 @@ const HeroSection = () => {
 
             {/* Floating Keywords */}
             <div className="mt-12 flex flex-wrap gap-4 justify-center lg:justify-start">
-              {['Proactive', 'Reliable', 'Calm under pressure', 'Results-driven'].map((keyword) => (
-                <span
-                  key={keyword}
-                  className="px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full text-blue-700 font-medium shadow-lg"
-                >
+              {['Proactive', 'Reliable', 'Calm under pressure', 'Results-driven'].map(keyword => <span key={keyword} className="px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full text-blue-700 font-medium shadow-lg">
                   {keyword}
-                </span>
-              ))}
+                </span>)}
             </div>
           </div>
 
@@ -94,8 +79,6 @@ const HeroSection = () => {
           <ArrowDown className="w-6 h-6 text-blue-600" />
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
