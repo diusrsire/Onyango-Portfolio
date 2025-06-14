@@ -10,25 +10,38 @@ const Footer = () => {
               Clara Onyango
             </h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Your billion-dollar virtual assistant partner. Helping visionaries focus while I manage the details with professionalism, reliability, and results-driven excellence.
+              Your premium virtual assistant partner. Helping visionaries focus while I manage the details with professionalism, reliability, and results-driven excellence.
             </p>
             <div className="flex space-x-4">
-              {[
-                { platform: 'LinkedIn', icon: '💼', href: '#' },
-                { platform: 'Email', icon: '📧', href: 'mailto:clara.onyango@example.com' },
-                { platform: 'WhatsApp', icon: '📱', href: '#' }
-              ].map((social) => (
-                <a
-                  key={social.platform}
-                  href={social.href}
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-200 group"
-                  title={social.platform}
-                >
-                  <span className="text-lg group-hover:scale-110 transition-transform duration-200">
-                    {social.icon}
-                  </span>
-                </a>
-              ))}
+              <a
+                href="mailto:claraonyango8@gmail.com"
+                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-200 group"
+                title="Email"
+              >
+                <span className="text-lg group-hover:scale-110 transition-transform duration-200">
+                  📧
+                </span>
+              </a>
+              <a
+                href="https://wa.me/447440536885"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors duration-200 group"
+                title="WhatsApp"
+              >
+                <span className="text-lg group-hover:scale-110 transition-transform duration-200">
+                  📱
+                </span>
+              </a>
+              <a
+                href="tel:+447440536885"
+                className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple-600 transition-colors duration-200 group"
+                title="Phone"
+              >
+                <span className="text-lg group-hover:scale-110 transition-transform duration-200">
+                  📞
+                </span>
+              </a>
             </div>
           </div>
 
@@ -74,18 +87,36 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
-            © 2024 Clara Onyango. All rights reserved.
-          </p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
-              Terms of Service
-            </a>
+        {/* Contact Info */}
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-6">
+            <div className="text-center md:text-left mb-4 md:mb-0">
+              <p className="text-lg font-semibold text-white">Clara Onyango</p>
+              <p className="text-gray-300">Premium Virtual Assistant</p>
+            </div>
+            <div className="text-center md:text-right">
+              <p className="text-gray-300">
+                📧 <a href="mailto:claraonyango8@gmail.com" className="hover:text-white transition-colors">claraonyango8@gmail.com</a>
+              </p>
+              <p className="text-gray-300">
+                📱 <a href="tel:+447440536885" className="hover:text-white transition-colors">+44 7440 536885</a>
+              </p>
+              <p className="text-gray-300">🌍 Remote - Global Service</p>
+            </div>
+          </div>
+          
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">
+              © 2024 Clara Onyango. All rights reserved.
+            </p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                Terms of Service
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -40,18 +40,38 @@ const ContactSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      // For production, you'd integrate with your preferred form service
+      // For now, we'll simulate success and provide contact information
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out! I'll get back to you within 24 hours.",
-    });
+      toast({
+        title: "Message Received!",
+        description: "Thanks for reaching out! I'll get back to you within 24 hours via email or phone.",
+      });
 
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact me directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -127,7 +147,7 @@ const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 text-lg font-semibold transform hover:scale-105 transition-all duration-200"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 text-lg font-semibold transition-colors duration-200"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
@@ -140,7 +160,7 @@ const ContactSection = () => {
             {/* Quick Contact */}
             <div className="bg-white rounded-3xl p-8 shadow-xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Quick Contact
+                Get in Touch
               </h3>
               
               <div className="space-y-4">
@@ -150,7 +170,9 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-blue-600">clara.onyango@example.com</p>
+                    <a href="mailto:claraonyango8@gmail.com" className="text-blue-600 hover:text-blue-700 transition-colors">
+                      claraonyango8@gmail.com
+                    </a>
                   </div>
                 </div>
 
@@ -159,25 +181,40 @@ const ContactSection = () => {
                     <span className="text-2xl">📱</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">WhatsApp</h4>
-                    <p className="text-green-600">+254 XXX XXX XXX</p>
+                    <h4 className="font-semibold text-gray-900">Phone</h4>
+                    <a href="tel:+447440536885" className="text-green-600 hover:text-green-700 transition-colors">
+                      +44 7440 536885
+                    </a>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                    <span className="text-2xl">🗓️</span>
+                    <span className="text-2xl">🌍</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Schedule a Call</h4>
-                    <p className="text-purple-600">Book a consultation</p>
+                    <h4 className="font-semibold text-gray-900">Location</h4>
+                    <p className="text-purple-600">Remote - Global Service</p>
                   </div>
                 </div>
               </div>
 
-              <Button className="w-full mt-6 bg-green-600 hover:bg-green-700 text-white py-3 font-semibold">
-                Message on WhatsApp
-              </Button>
+              <div className="mt-6 space-y-3">
+                <a 
+                  href="https://wa.me/447440536885" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white py-3 font-semibold rounded-lg transition-colors duration-200 flex items-center justify-center"
+                >
+                  Message on WhatsApp
+                </a>
+                <a 
+                  href="mailto:claraonyango8@gmail.com" 
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 font-semibold rounded-lg transition-colors duration-200 flex items-center justify-center"
+                >
+                  Send Email
+                </a>
+              </div>
             </div>
 
             {/* Response Time */}
@@ -207,12 +244,12 @@ const ContactSection = () => {
                 Availability
               </h3>
               <div className="space-y-2 text-gray-700">
-                <p><span className="font-semibold">Monday - Friday:</span> 8:00 AM - 6:00 PM EAT</p>
-                <p><span className="font-semibold">Saturday:</span> 9:00 AM - 2:00 PM EAT</p>
+                <p><span className="font-semibold">Monday - Friday:</span> 8:00 AM - 6:00 PM GMT</p>
+                <p><span className="font-semibold">Saturday:</span> 9:00 AM - 2:00 PM GMT</p>
                 <p><span className="font-semibold">Sunday:</span> Emergency support only</p>
               </div>
               <p className="text-sm text-gray-500 mt-4">
-                * Timezone: East Africa Time (UTC+3)
+                * Available across all time zones
               </p>
             </div>
           </div>

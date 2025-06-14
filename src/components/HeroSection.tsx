@@ -19,7 +19,7 @@ const HeroSection = () => {
             <div className="animate-fade-in-up">
               <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Your{' '}
-                <span className="gradient-text">Billion-Dollar</span>
+                <span className="gradient-text">Premium</span>
                 <br />
                 Virtual Assistant Partner
               </h1>
@@ -31,18 +31,38 @@ const HeroSection = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold transition-colors duration-200">
-                  Let's Work Together
-                </Button>
-                <Button variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg font-semibold transition-colors duration-200">
-                  View My Resume
-                </Button>
+                <a href="#contact">
+                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-semibold transition-colors duration-200">
+                    Let's Work Together
+                  </Button>
+                </a>
+                <a href="mailto:claraonyango8@gmail.com">
+                  <Button variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg font-semibold transition-colors duration-200">
+                    Get in Touch
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start text-gray-600">
+              <div className="flex items-center space-x-2">
+                <span>📧</span>
+                <a href="mailto:claraonyango8@gmail.com" className="hover:text-blue-600 transition-colors">
+                  claraonyango8@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <span>📱</span>
+                <a href="tel:+447440536885" className="hover:text-blue-600 transition-colors">
+                  +44 7440 536885
+                </a>
               </div>
             </div>
 
             {/* Floating Keywords */}
             <div className="mt-12 flex flex-wrap gap-4 justify-center lg:justify-start">
-              {['Proactive', 'Reliable', 'Calm under pressure', 'Results-driven'].map((keyword) => (
+              {['Proactive', 'Reliable', 'Remote Ready', 'Results-driven'].map((keyword) => (
                 <span key={keyword} className="px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full text-blue-700 font-medium shadow-lg">
                   {keyword}
                 </span>
@@ -59,6 +79,7 @@ const HeroSection = () => {
                     src="/lovable-uploads/a25823ee-6e86-490f-998b-9f41ec768d5d.png" 
                     alt="Clara Onyango - Professional Virtual Assistant" 
                     className="w-full h-auto object-cover"
+                    loading="eager"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent"></div>
                 </div>
