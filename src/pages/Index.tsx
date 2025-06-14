@@ -1,12 +1,39 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect, useState } from 'react';
+import HeroSection from '../components/HeroSection';
+import AboutSection from '../components/AboutSection';
+import ServicesSection from '../components/ServicesSection';
+import UseCasesSection from '../components/UseCasesSection';
+import ToolsSection from '../components/ToolsSection';
+import ExperienceSection from '../components/ExperienceSection';
+import TestimonialsSection from '../components/TestimonialsSection';
+import CertificationsSection from '../components/CertificationsSection';
+import ContactSection from '../components/ContactSection';
+import Footer from '../components/Footer';
+import Navigation from '../components/Navigation';
+import ScrollToTop from '../components/ScrollToTop';
 
 const Index = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className={`min-h-screen bg-white transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      <Navigation />
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <UseCasesSection />
+      <ToolsSection />
+      <ExperienceSection />
+      <TestimonialsSection />
+      <CertificationsSection />
+      <ContactSection />
+      <Footer />
+      <ScrollToTop />
     </div>
   );
 };
