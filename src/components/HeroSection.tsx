@@ -1,7 +1,10 @@
+
 import { Button } from './ui/button';
 import { ArrowDown } from 'lucide-react';
+
 const HeroSection = () => {
-  return <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 rounded-full opacity-20"></div>
@@ -16,7 +19,7 @@ const HeroSection = () => {
             <div className="animate-fade-in-up">
               <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
                 Your{' '}
-                <span className="gradient-text"></span>
+                <span className="gradient-text">Billion-Dollar</span>
                 <br />
                 Virtual Assistant Partner
               </h1>
@@ -39,24 +42,25 @@ const HeroSection = () => {
 
             {/* Floating Keywords */}
             <div className="mt-12 flex flex-wrap gap-4 justify-center lg:justify-start">
-              {['Proactive', 'Reliable', 'Calm under pressure', 'Results-driven'].map(keyword => <span key={keyword} className="px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full text-blue-700 font-medium shadow-lg">
+              {['Proactive', 'Reliable', 'Calm under pressure', 'Results-driven'].map((keyword) => (
+                <span key={keyword} className="px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full text-blue-700 font-medium shadow-lg">
                   {keyword}
-                </span>)}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Right Content - Profile Image */}
+          {/* Right Content - Clara's Professional Image */}
           <div className="relative">
             <div className="animate-fade-in-right">
               <div className="relative w-full max-w-md mx-auto">
-                <div className="w-full h-96 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-3xl shadow-2xl flex items-center justify-center">
-                  <div className="text-center text-blue-800">
-                    <div className="w-32 h-32 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <span className="text-4xl font-bold text-white">CO</span>
-                    </div>
-                    <p className="text-lg font-semibold">Clara Onyango</p>
-                    <p className="text-sm opacity-80">Virtual Assistant Expert</p>
-                  </div>
+                <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                  <img 
+                    src="/lovable-uploads/a25823ee-6e86-490f-998b-9f41ec768d5d.png" 
+                    alt="Clara Onyango - Professional Virtual Assistant" 
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent"></div>
                 </div>
                 
                 {/* Floating Tool Icons */}
@@ -79,6 +83,8 @@ const HeroSection = () => {
           <ArrowDown className="w-6 h-6 text-blue-600" />
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;

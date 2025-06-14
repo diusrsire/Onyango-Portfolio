@@ -12,7 +12,7 @@ const AboutSection = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     if (sectionRef.current) {
@@ -23,76 +23,81 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section id="about" className="py-24 bg-gray-50" ref={sectionRef}>
+    <section className="py-24 bg-gray-50" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
-          <div className={`${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
-              About Clara
-            </h2>
-            
-            <div className="space-y-6 text-lg text-gray-700">
-              <p className="leading-relaxed">
-                With over <span className="font-semibold text-blue-600">5+ years</span> of experience in virtual assistance and customer service, I specialize in helping high-performing individuals and teams stay organized, efficient, and focused on their core business.
-              </p>
-              
-              <p className="leading-relaxed">
-                My background spans from working with <span className="font-semibold text-blue-600">wellness coaches</span> and <span className="font-semibold text-blue-600">CEOs</span> to managing complex operations for remote teams. I understand that your time is your most valuable asset.
-              </p>
-              
-              <p className="leading-relaxed">
-                I don't just complete tasks—I anticipate needs, solve problems before they arise, and create systems that scale with your growth. When you work with me, you get a partner who cares about your success as much as you do.
-              </p>
-            </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">5+</div>
-                <div className="text-gray-600">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">500+</div>
-                <div className="text-gray-600">Projects Completed</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Content - Animated Keywords */}
-          <div className={`${isVisible ? 'animate-fade-in-right' : 'opacity-0'}`}>
+          {/* Left Content - Clara's Portrait */}
+          <div className={`relative ${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
             <div className="relative">
-              <div className="bg-white rounded-3xl p-8 shadow-xl">
-                <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                  Why Clients Choose Me
-                </h3>
-                
-                <div className="space-y-4">
-                  {[
-                    { trait: 'Proactive', desc: 'I anticipate needs before they become urgent' },
-                    { trait: 'Reliable', desc: 'Consistent quality, every single time' },
-                    { trait: 'Calm Under Pressure', desc: 'Grace and efficiency in high-stress situations' },
-                    { trait: 'Results-Driven', desc: 'Your success metrics are my success metrics' },
-                    { trait: 'Detail-Oriented', desc: 'Nothing falls through the cracks' },
-                    { trait: 'Communication Expert', desc: 'Clear, timely, and professional always' }
-                  ].map((item, index) => (
-                    <div
-                      key={item.trait}
-                      className="flex items-start space-x-4 p-4 rounded-xl hover:bg-blue-50 transition-colors duration-200 cursor-pointer group"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <div className="w-3 h-3 bg-blue-600 rounded-full mt-2 group-hover:scale-125 transition-transform duration-200"></div>
-                      <div>
-                        <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
-                          {item.trait}
-                        </h4>
-                        <p className="text-gray-600 text-sm">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <img 
+                src="/lovable-uploads/b9214170-4170-414a-8c4d-ef8baf2514c0.png" 
+                alt="Clara Onyango - Virtual Assistant Expert" 
+                className="w-full max-w-md mx-auto rounded-2xl shadow-xl"
+              />
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center shadow-lg">
+                <span className="text-3xl">✨</span>
               </div>
             </div>
           </div>
+
+          {/* Right Content */}
+          <div className={`${isVisible ? 'animate-fade-in-right' : 'opacity-0'}`}>
+            <div className="mb-8">
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+                Meet Clara Onyango
+              </h2>
+              <div className="w-24 h-1 bg-blue-600 mb-6"></div>
+            </div>
+
+            <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+              <p>
+                I'm Clara, a dedicated Virtual Assistant with a passion for helping ambitious professionals 
+                and entrepreneurs achieve their goals without getting bogged down by administrative tasks.
+              </p>
+
+              <p>
+                With years of experience in customer service, operations management, and remote support, 
+                I understand what it takes to keep businesses running smoothly behind the scenes. My approach 
+                is simple: <span className="text-blue-600 font-semibold">anticipate needs, deliver excellence, and exceed expectations.</span>
+              </p>
+
+              <p>
+                When you work with me, you're not just hiring a virtual assistant—you're gaining a strategic 
+                partner who genuinely cares about your success. I take pride in being the reliable backbone 
+                that allows visionaries like you to focus on what matters most: growing your impact.
+              </p>
+            </div>
+
+            {/* Key Traits */}
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              {[
+                { trait: 'Proactive Mindset', icon: '🎯' },
+                { trait: 'Detail-Oriented', icon: '🔍' },
+                { trait: 'Tech-Savvy', icon: '💻' },
+                { trait: 'Communication Expert', icon: '💬' }
+              ].map((item, index) => (
+                <div key={item.trait} className="flex items-center space-x-3 p-4 bg-white rounded-lg shadow-sm">
+                  <span className="text-2xl">{item.icon}</span>
+                  <span className="font-semibold text-gray-800">{item.trait}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Stats */}
+        <div className={`mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          {[
+            { number: '500+', label: 'Tasks Completed' },
+            { number: '50+', label: 'Happy Clients' },
+            { number: '24/7', label: 'Availability' },
+            { number: '100%', label: 'Satisfaction Rate' }
+          ].map((stat) => (
+            <div key={stat.label} className="p-6 bg-white rounded-xl shadow-lg">
+              <div className="text-3xl font-bold text-blue-600 mb-2">{stat.number}</div>
+              <div className="text-gray-600 font-medium">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
